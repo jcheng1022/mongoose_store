@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const { ReadableStreamBYOBReader } = require('stream/web');
 const Product = require('./models/products.js');
 const productSeed = require('./models/productSeed.js');
 const app = express();
@@ -49,9 +50,20 @@ app.get('/products/new', (req,res) => {
 // U
   
 // C
-app.post
+
+app.post('/products', (req,res) => {
+    Product.create(req.body, (error,createdProduct) => {
+        res.redirect('/products')
+    })
+})
 // S
-app.get('/products/:id', )
+app.get('/products/:id', (req,res) => {
+    Product.findById(req.params.id, (err, foundProduct) => {
+        res.render('show.ejs', {
+            product:foundProduct,
+        })
+    })
+})
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
