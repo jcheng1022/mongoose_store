@@ -4,9 +4,7 @@ const Product = require('../models/products')
 
 //seed route 
 const productSeed = require('../models/productSeed');
-router.get('/', (req,res) => {
-    res.render('root.ejs');
-})
+
 router.get('/seed', (req,res) => {
     Product.deleteMany({}, (error, allProducts) => {});
 
