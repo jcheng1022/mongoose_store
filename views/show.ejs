@@ -16,12 +16,24 @@
 <br>
 
 <img src="<%=product.img%>"/>
-<h2> Quantity: <span id="currentQuantity"> <%=product.qty%></span> <br> Price: $ <%= product.price %> </h2>
+<h2> 
+    Price: $ <%= product.price %>
+    <br>  
+    <% if(product.qty > 0) { %>
+        Quantity: <%=product.qty%>
+        <button onclick="buyProduct()"> Buy</button>
+    <% } else { %>
+        Quantity: OUT OF STOCK
+    <% } %>
+
+      
+    
+
+ </h2>
 
 
 
 
-<button onclick="buyProduct()"> Buy</button>
 
 <% function buyProduct() { %>
     <% let currentQuantity = product.qty %>
