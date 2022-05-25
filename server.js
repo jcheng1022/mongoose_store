@@ -60,10 +60,20 @@ app.delete("/products/:id", (req,res) => {
 // U
   
 // C
-
 app.post('/products', (req,res) => {
     Product.create(req.body, (error,createdProduct) => {
         res.redirect('/products')
+    })
+})
+
+
+// E
+
+app.get('/products/:id/edit', (req,res) => {
+    Product.findById(req.params.id, (error, foundProduct) => {
+        res.render('edit.ejs', {
+            product:foundProduct,
+        })
     })
 })
 // S
