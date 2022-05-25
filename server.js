@@ -6,6 +6,8 @@ const productSeed = require('./models/productSeed.js');
 const app = express();
 require('dotenv').config();
 
+
+
 mongoose.connect(process.env.DATABASE_URL, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
@@ -33,6 +35,8 @@ app.get('/products/seed', (req,res) => {
         res.redirect('/products')
     })
 })
+
+
 // I
 app.get('/products/', (req,res) => {
     Product.find({}, (error, allProducts) => {

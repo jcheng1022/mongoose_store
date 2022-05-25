@@ -16,12 +16,22 @@
 <br>
 
 <img src="<%=product.img%>"/>
-<h2> Quantity: <%=product.qty%> <br> Price: $ <%= product.price %> </h2>
-
-<form>
-    <button> Buy</button>
-</form>
+<h2> Quantity: <span id="currentQuantity"> <%=product.qty%></span> <br> Price: $ <%= product.price %> </h2>
 
 
+
+
+<button onclick="buyProduct()"> Buy</button>
+
+<% function buyProduct() { %>
+    <% let currentQuantity = product.qty %>
+    <% currentQuantity.value -= 1; %>
+
+ <% } %>
+<!-- GRAVEYARD CODE
+
+
+
+ -->
 </body>
 </html>
