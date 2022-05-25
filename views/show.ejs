@@ -19,12 +19,19 @@
 <br>
 
 <img src="<%=product.img%>"/>
+<br>
+Description: <%=product.description%>
 <h2> 
     Price: $ <%= product.price %>
     <br>  
     <% if(product.qty > 0) { %>
-        Quantity: <%=product.qty%>
-        <button onclick="buyProduct()"> Buy</button>
+        <% const quantity = [product.qty]%>
+        Quantity: <span class ='productQuantity'><%=product.qty%></span>
+
+        <form action="/products/<%=product._id%>?_method=PUT" onsubmit="buyBtnClick()"method="POST">
+            <input type="submit" value="Buy product"/>
+        </form>
+
     <% } else { %>
         Quantity: OUT OF STOCK
     <% } %>
@@ -38,15 +45,12 @@
 
 
 
-<% function buyProduct() { %>
-    <% let currentQuantity = product.qty %>
-    <% currentQuantity.value -= 1; %>
-
- <% } %>
 <!-- GRAVEYARD CODE
 
 
 
  -->
+
+
 </body>
 </html>

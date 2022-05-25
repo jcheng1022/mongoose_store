@@ -29,7 +29,9 @@ app.use(methodOverride("_method"))
 
 
 //seed route 
-
+app.get('/', (req,res) => {
+    res.render('root.ejs');
+})
 app.get('/products/seed', (req,res) => {
     Product.deleteMany({}, (error, allProducts) => {});
 
@@ -66,9 +68,13 @@ app.put("/products/:id", (req,res) => {
             new:true,
         },
         (error, updatedProduct) => {
+            updatedProduct.qty -= 1 
+            updatedProduct.save()
             res.redirect(`/products/${req.params.id}`)
-        }
+        },
+
     )
+    
 })
 // C
 app.post('/products', (req,res) => {
