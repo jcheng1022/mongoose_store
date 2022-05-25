@@ -28,8 +28,8 @@ Description: <%=product.description%>
         <% const quantity = [product.qty]%>
         Quantity: <span class ='productQuantity'><%=product.qty%></span>
 
-        <form action="/products/<%=product._id%>?_method=PUT" onsubmit="buyBtnClick()"method="POST">
-            <input type="submit" value="Buy product"/>
+        <form action="/products/<%=product._id%>/buy?_method=PUT" onsubmit="buyBtnClick()"method="POST">
+            <input type="submit" value="Buy product" id="buyBtn"/>
         </form>
 
     <% } else { %>

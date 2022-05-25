@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const { ReadableStreamBYOBReader } = require('stream/web');
 const Product = require('./models/products.js');
 const productSeed = require('./models/productSeed.js');
 const methodOverride = require("method-override")
@@ -68,14 +67,28 @@ app.put("/products/:id", (req,res) => {
             new:true,
         },
         (error, updatedProduct) => {
-            updatedProduct.qty -= 1 
-            updatedProduct.save()
             res.redirect(`/products/${req.params.id}`)
         },
 
     )
     
 })
+// update route for buy button
+app.put("/products/:id/buy", (req,res) => {
+    Product.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {
+            new:true,
+        },
+        (error, updatedProduct) => {
+            updatedProduct.qty -= 1 
+            updatedProduct.save()
+            res.redirect(`/products/${req.params.id}`)
+        },
+    )
+})
+
 // C
 app.post('/products', (req,res) => {
     Product.create(req.body, (error,createdProduct) => {
