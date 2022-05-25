@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const { ReadableStreamBYOBReader } = require('stream/web');
 const Product = require('./models/products.js');
 const productSeed = require('./models/productSeed.js');
+const methodOverride = require("method-override")
 const app = express();
 require('dotenv').config();
 
@@ -22,6 +23,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 //middleware
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"))
 
 // Routes
 
@@ -50,7 +52,11 @@ app.get('/products/new', (req,res) => {
     res.render('new.ejs')
 })
 // D
-  
+app.delete("/products/:id", (req,res) => {
+    Product.findByIdAndRemove(req.params.id,(err, data) => {
+        res.redirect("/products")
+    })
+})
 // U
   
 // C
