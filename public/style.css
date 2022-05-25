@@ -39,7 +39,31 @@ img {
     border-radius:25px;
 }
 
+input {
+    width: 40%;
+    text-align:center;
+    box-sizing:border-box;
+    border: 2px solid #f25844;
+    border-radius:5px;
+    
+}
 
+input:focus {
+    outline: 0 ;
+    border: 2px solid #9d5cf2;
+}
+
+#editForm {
+    margin: 20px;
+}
+#editBtn{
+    padding: 10px;
+    margin-top: 20px;
+    background-color:#f25844;
+}
+#editBtn:hover {
+    border: 2px solid white;
+}
 li a:hover {
     border: 1px solid black;
 }
@@ -48,7 +72,20 @@ li a:hover {
     display:inline-flex;
     flex-direction: row;
     justify-content: space-around;
-    
 
 }
 
+
+#deleteBtn {
+    color:white;
+    background-color:red;
+    width:75px;
+}
+
+#buyBtn {
+    color:white;
+    background-color:#1fde35;
+    width:100px; 
+    border: none;
+    padding: 10px;
+}

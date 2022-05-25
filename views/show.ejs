@@ -11,7 +11,7 @@
 <h1> <%=product.name%> </h1>
 <a href="/products/<%=product._id %>/edit"> Edit Product</a>
 <form action="/products/<%=product.id%>?_method=DELETE" method="POST">
-    <input type="submit" value="DELETE"/>
+    <input id="deleteBtn" type="submit" value="DELETE"/>
 </form>
 <br>
 
@@ -22,9 +22,7 @@ Description: <%=product.description%>
     Price: $ <%= product.price %>
     <br>  
     <% if(product.qty > 0) { %>
-        <% const quantity = [product.qty]%>
         Quantity: <%=product.qty%>
-
         <form action="/products/<%=product._id%>/buy?_method=PUT"method="POST">
             <input type="submit" value="Buy product" id="buyBtn"/>
         </form>

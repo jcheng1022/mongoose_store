@@ -6,17 +6,17 @@
 <body>
     
     <h1> Edit <%=product.name%></h1>
-
+<div id="editForm">
     <form action="/products/<%=product._id%>?_method=PUT" method="POST">
-    <input type="text" name="name" value="<%=product.name%>"/> <br>
-    <input type="text" name="description" value="<%=product.description%>"/>  <br>
-    <input type="text" name="img" value="<%=product.img%>"/>  <br>
-    <input type="number" name="price" value="<%=product.price%>"/>  <br>
-    <input type="number" name="qty" value="<%=product.qty%>"/> <br>
-        <input type="submit" name="" value="Edit Product"/>
+    Name<br><input type="text" name="name" value="<%=product.name%>"/> <br>
+    Description<br> <input type="text" name="description" value="<%=product.description%>"/>  <br>
+    Image<br><input type="text" name="img" value="<%=product.img%>"/>  <br>
+    Price<br><input type="number" name="price" value="<%=product.price%>"/>  <br>
+    Quantity<br><input type="number" name="qty" value="<%=product.qty%>" min ="0"/> <br>
+        <input id="editBtn"type="submit" name="" value="Edit Product"/>
         
     </form>
-
+</div>
 
 </body>
 </html>
