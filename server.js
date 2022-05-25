@@ -58,7 +58,18 @@ app.delete("/products/:id", (req,res) => {
     })
 })
 // U
-  
+app.put("/products/:id", (req,res) => {
+    Product.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {
+            new:true,
+        },
+        (error, updatedProduct) => {
+            res.redirect(`/products/${req.params.id}`)
+        }
+    )
+})
 // C
 app.post('/products', (req,res) => {
     Product.create(req.body, (error,createdProduct) => {

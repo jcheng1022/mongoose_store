@@ -10,7 +10,7 @@
     
     <h1> Edit <%=product.name%></h1>
 
-    <form action="/products/<%=product._id%>" method="POST">
+    <form action="/products/<%=product._id%>?_method=PUT" method="POST">
     <input type="text" name="name" value="<%=product.name%>"/> <br>
     <input type="text" name="description" value="<%=product.description%>"/>  <br>
     <input type="text" name="img" value="<%=product.img%>"/>  <br>
