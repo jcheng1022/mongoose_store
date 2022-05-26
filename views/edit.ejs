@@ -6,6 +6,7 @@
 <body>
     
     <h1> Edit <%=product.name%></h1>
+    <a href="/products"> Return to Main Page</a>
 <div id="editForm">
     <form action="/products/<%=product._id%>?_method=PUT" method="POST">
     Name<br><input type="text" name="name" value="<%=product.name%>"/> <br>
